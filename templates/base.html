@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To-Do & Service Reminder Application</title>
     <link rel="stylesheet" href="/static/styles.css">
+    <link rel="stylesheet" href="/static/login.css">
 </head>
 <body>
     <div class="navbar">
@@ -16,7 +17,7 @@
                 <li><a href="{{ url_for('get_task') }}">ToDo</a></li>
                 <li><a href="#">Service Reminder</a></li>
                 <li><a href="#" class="primary-button">Sign in</a></li>
-                <li><a href="#" class="secondary-button">Sign up</a></li>
+                <li><a href="{{ url_for('signup') }}" class="secondary-button">Sign up</a></li>
             </ul>
         </div>
     </div>

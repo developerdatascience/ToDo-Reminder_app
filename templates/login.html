@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+<link rel="stylesheet" href="/static/login.css">
+
+{% block title %}ToDo Reminder App{% endblock %}
+
+{% block content %}
+    <div class="login-container">
+        <div class="login-form">
+            <div class="login-header">
+                <h2>Login</h2>
+            </div>
+            <div class="line"></div>
+            <form action="/login" method="post">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" name="username" id="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" required>
+                </div>
+                <div class="button-group">
+                    <button type="submit">Login</button>
+                    <button class="back-btn"><a href="{{ url_for('register')}}">Register</a></button>
+                </div>
+                <div class="line"></div>
+                <div class="forget-password">
+                    <a href="{{ url_for('forget_password')}}">Forget Password?</a>
+                </div>
+            </form>
+        </div>
+{% endblock content %}

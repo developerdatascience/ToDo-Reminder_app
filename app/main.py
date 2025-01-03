@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from .routers import todo, reminders
+from .routers import todo, reminders, login
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 
@@ -17,6 +17,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-
+app.include_router(login.router, tags=["login"])
 app.include_router(todo.router, tags=["todo"])
 app.include_router(reminders.router, tags=["reminder"])
