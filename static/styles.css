@@ -3,56 +3,218 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f9f9f9;
-    color: #333;
 }
 
-header {
-    background: #4CAF50;
-    color: white;
-    padding: 1em;
-    text-align: center;
+:root {
+    --primary-text-color: #183b56;
+    --secondary-text-color: #577592;
+    --accent-color: #2294ed;
+    --accent-color-dark: #1d69a3;
+    --padding-inline-section: 20px;
 }
 
-nav a {
+ul{
+    list-style: none;
+}
+
+.navbar {
+    display: flex;
+    justify-content: flex-end; /* Pushes navlinks to the right */
+    align-items: center;
+    /* background-color: #333; */
+    padding: 10px 20px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-header h1 {
+    font-size: 18px;
+}
+
+.navlinks ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px; /* Space between the navigation items */
+}
+
+.navlinks li {
+    display: inline;
+}
+
+.navlinks a {
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 700;
+    color: var(--primary-text-color);
+    font-size: 16px;
+    padding: 15px 20px;
+    box-shadow: 0 0 2px var(--secondary-text-color);
+    transition: background-color 0.3s;
+}
+
+.primary-button {
+    /* background-color: var(--accent-color); */
+    border-radius: 6px;
+    font-weight: 700;
+    color: var(--primary-text-color);
+    padding: 12px 24px;
+    box-shadow: 0 0 2px var(--secondary-text-color);
+    transition: 0.2s ease-out;
+}
+
+.primary-button:hover {
+    background-color: var(--accent-color-dark);
+}
+
+.secondary-button {
+    background-color: var(--accent-color);
+    border: 0.5px solid var(--secondary-text-color);
+    border-radius: 6px;
+    font-weight: 700;
+    color: var(--primary-text-color) !important;
+    padding: 12px 24px;
+    transition: 0.2s ease-out;
+
+}
+
+.secondary-button:hover {
+    border-color: var(--accent-color);
+    color: var(--accent-color) !important;
+}
+
+.navlinks a:hover {
+    background-color: #1d69a3;
+    border-radius: 6px;
+    color: white !important;
+}
+
+
+main {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-table .addtaskbutton {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 8px;
+    background-color: #3a5d8f;
+}
+
+.addtaskbutton .button-container {
+    padding-inline: 10px;
+}
+
+button a {
     color: white;
-    margin: 0 10px;
     text-decoration: none;
 }
 
-main {
-    margin: 2em auto;
-    max-width: 600px;
-    background: white;
-    padding: 1.5em;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-button {
-    background: #4CAF50;
+.addtaskbutton .button-container button {
+    padding: 10px 20px;
+    border-radius: 6px;
+    background-color: var(--accent-color);
     color: white;
-    padding: 0.5em;
+    font-weight: 700;
     border: none;
-    border-radius: 3px;
+    box-shadow: 0 0 2px var(--secondary-text-color);
+    transition: 0.2s ease-out;
     cursor: pointer;
 }
 
-button:hover {
-    background: #45a049;
+.addtaskbutton .button-container button:hover {
+    padding: 10px 20px;
+    border-radius: 6px;
+    background-color: #497ca2;
+    color: white;
+    font-weight: 700;
+    border: none;
+    box-shadow: 0 0 2px var(--secondary-text-color);
+    transition: 0.2s ease-out;
+    cursor: pointer;
 }
 
-ul {
-    list-style: none;
-    padding: 0;
+.form-table {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    width: 60%;
+    /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
 }
 
-li {
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
+.form-table h2{
+    color: white;
+    padding-left: 10px;
 }
+
+
+/* .form-table form {
+    margin-bottom: 20px;
+} */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: #f4f4f4;
+}
+
+.taskname_list {
+    text-align: left;
+}
+
+
+form .status-form select option {
+    padding: 20px;
+}
+
+
+.status-form #status {
+    padding: 5px;
+    width: 100%;
+}
+
+.button-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.button-group button {
+    padding: 7px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.update-btn {
+    background-color: rgb(38, 89, 31);
+    color: white;
+}
+
+.delete-btn {
+    background-color: rgb(204, 36, 78);
+    color: white;
+}
+

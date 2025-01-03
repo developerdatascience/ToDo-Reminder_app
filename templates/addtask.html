@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/addtask.css">
+</head>
+<body>
+    <div class="add-task-popup" id="addTask">
+        <div class="task-header">
+            <h2>Add Your Tasks </h2>
+        </div>
+        <div class="form-table">
+            <form id="taskForm" action="/todo/create_task/" method="post">
+                <div class="task">
+                    <label for="task_name">Task Name</label>
+                    <input type="text" id="task_name" name="task_name" required>
+                </div>   
+                <div class="task">
+                    <label for="start_date">Start Date</label>
+                    <input type="date" id="start_date" name="start_date" required>
+                </div>
+                <div class="task">
+                    <label for="status">Status</label>
+                    <select name="status" id="status">
+                        <option value="Pending">Pending</option>
+                        <option value="In Progress">In Progress</option>
+                        <option value="Completed">Completed</option>
+                    </select>
+                </div>
+                <div class="add-button">
+                    <button type="submit" id="submitTask">Add Task</button>
+                    <button class="back-btn"><a href="{{ url_for('get_task')}}">ToDo</a></button>
+                </div>
+            </form>
+        </div>
+    </div>
+     <!-- Toast container -->
+    <div id="toast" class="toast"></div>
+
+    <script>
+        document.getElementById("submitTask").addEventListener("click", async function () {
+            const form = document.getElementById("taskForm");
+            const formData = newFormData(form);
+            const toast = document.getElementById("toast");
+            
+            try{
+                const response = await fetch("/todo/create_task/", {
+                    method: "POST",
+                    body: formData
+                });
+
+                if (response.ok) {
+                    showToast("Task added successfully", toast);
+                } else {
+                    showToast('Failed to add task. Please try again.', 'error');
+                } 
+            }catch (error) {
+                    showToast('An error occurred. Please try again.', 'error');
+            }
+
+        });
+
+        function showToast(message, toast) {
+            const toast = document.getElementById("toast");
+            toast.textContent = message;
+            toast.style.backgroundColor = type == 'success' ? 'green' : 'red';
+            toast.className = 'toast show';
+
+           
+            setTimeout(() => {
+                toast.className = 'toast';
+            }, 3000);
+        }
+    </script>
+</body>
+</html>

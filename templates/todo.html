@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}To-Do App{% endblock %}
+
+{% block content %}
+    <div class="form-table">
+        <div class="addtaskbutton">
+            <div class="table-header">
+                <h2>Manage your task</h2>
+            </div>
+            <div class="button-container">
+                <button id="addTaskBtn"><a href="{{ url_for("add_task")}}">Add Task</a></button>
+            </div>
+        </div>
+        <table>
+            <tr>
+                <th>Task ID</th>
+                <th>Task Name</th>
+                <th>Start Date</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr> 
+            <tbody id="tasks-list">
+                {% for task in users %}
+                <tr>
+                    <td>{{ task.id }}</td>
+                    <td class="taskname_list">{{ task.task_name }}</td>
+                    <td>{{ task.start_date }}</td>
+                    <td id="status_code">{{ task.status }}</td>
+                    <td>
+                        <div class="button-group">
+                            <button class="update-btn" type="submit">
+                                <a href="/todo/update/{{ task.id }}">Update</a>
+                            </button>
+                            <button class="delete-btn" data-id="{{ task.id }}">
+                                <a href="/delete/{{ task.id }}">Delete</a>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    
+
+{% endblock content %}

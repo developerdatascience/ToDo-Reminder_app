@@ -3,22 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do & Service Reminder Application</title>
     <link rel="stylesheet" href="/static/styles.css">
-    <title>{% block title %}App{% endblock %}</title>
 </head>
 <body>
-    <header>
-        <h1>To-Do & Service Reminder App</h1>
-        <nav>
-            <a href="/todo">To-Do App</a>
-            <a href="/reminder">Service Reminder</a>
-        </nav>
-    </header>
+    <div class="navbar">
+        <div class="nav-header">
+            <h1>USABILITY HUB</h1>
+        </div>
+        <div class="navlinks">
+            <ul>
+                <li><a href="{{ url_for('get_task') }}">ToDo</a></li>
+                <li><a href="#">Service Reminder</a></li>
+                <li><a href="#" class="primary-button">Sign in</a></li>
+                <li><a href="#" class="secondary-button">Sign up</a></li>
+            </ul>
+        </div>
+    </div>
     <main>
         {% block content %}{% endblock %}
     </main>
-    <footer>
-        <p>&copy; 2024 To-Do & Reminder App</p>
-    </footer>
+    <script src="/static/colorcode.js"></script>
 </body>
 </html>

@@ -1,0 +1,73 @@
+.container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.update-form {
+    width: 50%;
+    background-color: rgb(237, 237, 237);
+    padding: 40px;
+    border-radius: 10px;
+}
+
+.update-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.task {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+select, option {
+    width: 103%;
+}
+
+
+.update-button {
+    text-align: center;
+}
+
+button, .back-btn {
+    padding: 10px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#updateTask {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.back-btn {
+    background-color: #f44336;
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.update-button .back-btn a{
+    text-decoration: none;
+    color: white;
+}
